@@ -69,7 +69,7 @@ fig1.add_vline(x=threshold, line_dash="dash", line_color="red",
 # data and sidebar slider still cover the true range, this only sets the initial axis view.
 fig1.update_xaxes(range=[0, 600])
 st.plotly_chart(fig1, use_container_width=True)
-st.caption("Chart zoomed to R$0–600 by default for readability. Use the toolbar's autoscale/zoom-out icon to see the full range including outliers up to R$6,922.")
+st.caption("Chart zoomed to R$ 0 to 600 by default for readability. Use the toolbar's autoscale or zoom-out icon to see the full range including outliers up to R$ 6,922.")
 
 col_a, col_b = st.columns(2)
 
