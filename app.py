@@ -29,8 +29,8 @@ selected_cats = st.sidebar.multiselect("Dominant category", cats, default=cats)
 
 value_range = st.sidebar.slider(
     "Order value range (R$)",
-    float(df["order_value"].min()), float(min(df["order_value"].max(), 1000)),
-    (float(df["order_value"].min()), float(min(df["order_value"].max(), 1000)))
+    float(df["order_value"].min()), float(df["order_value"].max()),
+    (float(df["order_value"].min()), float(df["order_value"].max()))
 )
 
 filtered = df[
@@ -52,14 +52,19 @@ st.divider()
 
 # ---------- View 1: Order value distribution ----------
 st.subheader("1. Order Value Distribution")
-threshold = df["order_value"].quantile(0.8)
+# Threshold computed on the chronological training partition only (first 80% by purchase date),
+# matching the methodology in Report 1, Sections 1.2 and 5.2 - not the full dataset's own quantile.
+df_sorted = df.sort_values("order_purchase_timestamp").reset_index(drop=True)
+_split_idx = int(len(df_sorted) * 0.8)
+_train = df_sorted.iloc[:_split_idx]
+threshold = _train["order_value"].quantile(0.8)
 fig1 = px.histogram(
     filtered, x="order_value", nbins=50,
     labels={"order_value": "Order value (R$)"},
     title="Distribution of order value (80th percentile threshold shown)"
 )
 fig1.add_vline(x=threshold, line_dash="dash", line_color="red",
-                annotation_text=f"80th pct = R${threshold:.2f}")
+                annotation_text=f"80th pct (train partition) = R${threshold:.2f}")
 st.plotly_chart(fig1, use_container_width=True)
 
 col_a, col_b = st.columns(2)
