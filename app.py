@@ -12,7 +12,7 @@ def load_data():
 
 df = load_data()
 
-st.title("Order Value Prediction -- Electronics Segment")
+st.title("Order Value Prediction - Electronics Segment")
 st.caption(
     "TCX3901 Industrial Practice | Report 1 EDA dashboard | "
     "Olist Brazilian E-Commerce dataset, electronics + computers_accessories + "
