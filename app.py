@@ -59,7 +59,9 @@ _split_idx = int(len(df_sorted) * 0.8)
 _train = df_sorted.iloc[:_split_idx]
 threshold = _train["order_value"].quantile(0.8)
 fig1 = px.histogram(
-    filtered, x="order_value", nbins=50,
+    filtered, x="order_value",
+    nbins=60,
+    range_x=[0, 600],
     labels={"order_value": "Order value (R$)"},
     title="Distribution of order value (80th percentile threshold shown)"
 )
