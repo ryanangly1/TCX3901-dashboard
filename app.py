@@ -12,7 +12,7 @@ def load_data():
 
 df = load_data()
 
-st.title("Order Value Prediction — Electronics Segment")
+st.title("Order Value Prediction -- Electronics Segment")
 st.caption(
     "TCX3901 Industrial Practice | Report 1 EDA dashboard | "
     "Olist Brazilian E-Commerce dataset, electronics + computers_accessories + "
@@ -44,16 +44,16 @@ st.sidebar.markdown(f"**{len(filtered):,}** orders match current filters")
 # ---------- Top-level KPIs ----------
 col1, col2, col3, col4 = st.columns(4)
 col1.metric("Orders", f"{len(filtered):,}")
-col2.metric("Mean order value", f"R${filtered['order_value'].mean():.2f}" if len(filtered) else "—")
-col3.metric("Median order value", f"R${filtered['order_value'].median():.2f}" if len(filtered) else "—")
-col4.metric("High-value share", f"{filtered['high_value'].mean()*100:.1f}%" if len(filtered) else "—")
+col2.metric("Mean order value", f"R${filtered['order_value'].mean():.2f}" if len(filtered) else "--")
+col3.metric("Median order value", f"R${filtered['order_value'].median():.2f}" if len(filtered) else "--")
+col4.metric("High-value share", f"{filtered['high_value'].mean()*100:.1f}%" if len(filtered) else "--")
 
 st.divider()
 
 # ---------- View 1: Order value distribution ----------
 st.subheader("1. Order Value Distribution")
 # Threshold computed on the chronological training partition only (first 80% by purchase date),
-# matching the methodology in Report 1, Sections 1.2 and 5.2 — not the full dataset's own quantile.
+# matching the methodology in Report 1, Sections 1.2 and 5.2 -- not the full dataset's own quantile.
 df_sorted = df.sort_values("order_purchase_timestamp").reset_index(drop=True)
 _split_idx = int(len(df_sorted) * 0.8)
 _train = df_sorted.iloc[:_split_idx]
