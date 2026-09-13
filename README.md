@@ -1,11 +1,11 @@
-# TCX3901 Report 1 — EDA Dashboard
+# TCX3901 Report 1 - EDA Dashboard
 
 Order value prediction, electronics segment, Olist Brazilian E-Commerce dataset.
 
 ## What this is
 
 A 4-view exploratory dashboard supporting Report 1 of TCX3901 Industrial Practice
-(AY2026/27). Shows the order value distribution, basket-size effect, geographic
+(AY26/27). Shows the order value distribution, basket-size effect, geographic
 concentration, and payment-instalment relationship for the electronics segment
 (9,297 delivered orders), matching the analysis in Report 1 Sections 3–5.
 
