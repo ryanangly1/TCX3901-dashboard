@@ -12,7 +12,7 @@ def load_data():
 
 df = load_data()
 
-st.title("Order Value Prediction — Electronics Segment")
+st.title("Order Value Prediction - Electronics Segment")
 st.caption(
     "TCX3901 Industrial Practice | Report 1 EDA dashboard | "
     "Olist Brazilian E-Commerce dataset, electronics + computers_accessories + "
@@ -44,9 +44,9 @@ st.sidebar.markdown(f"**{len(filtered):,}** orders match current filters")
 # ---------- Top-level KPIs ----------
 col1, col2, col3, col4 = st.columns(4)
 col1.metric("Orders", f"{len(filtered):,}")
-col2.metric("Mean order value", f"R${filtered['order_value'].mean():.2f}" if len(filtered) else "—")
-col3.metric("Median order value", f"R${filtered['order_value'].median():.2f}" if len(filtered) else "—")
-col4.metric("High-value share", f"{filtered['high_value'].mean()*100:.1f}%" if len(filtered) else "—")
+col2.metric("Mean order value", f"R${filtered['order_value'].mean():.2f}" if len(filtered) else "-")
+col3.metric("Median order value", f"R${filtered['order_value'].median():.2f}" if len(filtered) else "-")
+col4.metric("High-value share", f"{filtered['high_value'].mean()*100:.1f}%" if len(filtered) else "-")
 
 st.divider()
 
